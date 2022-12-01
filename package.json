@@ -1,13 +1,13 @@
 {
   "name": "adventofcode",
   "version": "1.0.0",
-  "description": "",
+  "description": "Advent of Code 2022",
   "main": "",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "npx eslint src/**/*.js"
   },
-  "author": "",
+  "author": "Daniel Thunell",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^8.28.0",
