@@ -6,23 +6,17 @@ const loadFile = () => {
         .split("\n\n")
 }
 
-const caloriesPerElf = (elfPayload, index) => {
-    const calories = elfPayload
+const caloriesPerElf = (elfPayload) => {
+    return elfPayload
         .split("\n")
         .map((a) => parseInt(a))
         .reduce((a,b) => a + b)
-    
-    return {
-        index,
-        calories
-    }
 }
 
-const indexOfElfWithMostCalories = 
+const mostCalories = 
     loadFile()
     .map(caloriesPerElf)
-    .sort((a, b) => b.calories - a.calories)
+    .sort((a, b) => b - a)
     .at(0)
-    .index
 
-console.log(indexOfElfWithMostCalories)
+console.log(`The elf with the most calories carries ${mostCalories} calories`)
