@@ -1,16 +1,16 @@
 import { readFileSync } from 'node:fs'
 import * as url from 'url'
 
-const loadFile = () => {
+const loadFile = (): string[] => {
   return readFileSync(`${url.fileURLToPath(new URL('.', import.meta.url))}/input.txt`, 'utf-8')
     .split("\n\n")
 }
 
-const descending = (a, b) => b - a
+const descending = (a:number, b: number): number => b - a
 
-const INPUT = loadFile()
+const INPUT: string[] = loadFile()
 
-const caloriesPerElf = (elfPayload) => {
+const caloriesPerElf = (elfPayload: string) => {
   return elfPayload
     .split("\n")
     .map((a) => parseInt(a))
@@ -21,7 +21,7 @@ const mostCalories =
   INPUT
     .map(caloriesPerElf)
     .sort(descending)
-    .at(0)
+    .at(0) as number
 
 const topThreeCalories =
   INPUT
