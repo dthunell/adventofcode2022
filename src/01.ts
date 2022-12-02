@@ -1,8 +1,4 @@
-import { loadFile } from "./loadFile"
-
-const descending = (a:number, b: number): number => b - a
-const sum = (acc: number, current:number): number => acc + current
-
+import { loadFile, sum, descending } from "./helpers.js"
 const INPUT: string[] = loadFile('01.txt').split("\n\n")
 
 const caloriesPerElf = (elfPayload: string) => {
