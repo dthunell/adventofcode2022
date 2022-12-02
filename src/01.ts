@@ -1,14 +1,9 @@
-import { readFileSync } from 'node:fs'
-import * as url from 'url'
-
-const loadFile = (): string[] => {
-  return readFileSync(`${url.fileURLToPath(new URL('.', import.meta.url))}/input.txt`, 'utf-8')
-    .split("\n\n")
-}
+import { loadFile } from "./loadFile"
 
 const descending = (a:number, b: number): number => b - a
+const sum = (acc: number, current:number): number => acc + current
 
-const INPUT: string[] = loadFile()
+const INPUT: string[] = loadFile('01.txt').split("\n\n")
 
 const caloriesPerElf = (elfPayload: string) => {
   return elfPayload
@@ -28,7 +23,7 @@ const topThreeCalories =
     .map(caloriesPerElf)
     .sort(descending)
     .slice(0, 3)
-    .reduce((acc, current) => acc + current)
+    .reduce(sum)
 
 console.log(`The elf with the most calories carries ${mostCalories} calories`)
 console.log(`The top three elves carries ${topThreeCalories} calories`)
